@@ -6,14 +6,13 @@ import { endPoints, imagePathPrefix } from "./request";
 function Banner() {
   const [movieUrl, setMovieUrl] = useState("");
 
-  async function getData() {
-    const response = await axios.get(endPoints.netflixOriginals);
-    const movies = response.data.results;
-    const movie = movies[Math.floor(Math.random() * movies.length)];
-    setMovieUrl(imagePathPrefix + movie.backdrop_path);
-  }
-
   useEffect(() => {
+    async function getData() {
+      const response = await axios.get(endPoints.netflixOriginals);
+      const movies = response.data.results;
+      const movie = movies[Math.floor(Math.random() * movies.length)];
+      setMovieUrl(imagePathPrefix + movie.backdrop_path);
+    }
     getData();
   }, []);
 
