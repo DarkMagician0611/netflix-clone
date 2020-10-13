@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Nav.css";
 
 function Nav() {
+  const [style, setStyle] = useState("nav");
+
+  const handleScroll = () => {
+    const position = window.pageYOffset;
+    setStyle(position > 570 ? "nav nav__black" : "nav");
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <div className="nav">
+    <div className={style}>
       <img
         className="nav__logo"
         src="https://upload.wikimedia.org/wikipedia/commons/0/0f/Logo_Netflix.png"

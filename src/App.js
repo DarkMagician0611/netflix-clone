@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import Banner from "./Banner";
 import Nav from "./Nav";
 import { endPoints } from "./request";
 import Row from "./Row";
@@ -8,6 +9,7 @@ function App() {
   return (
     <div className="app">
       <Nav />
+      <Banner />
       <div className="rows">
         <Row
           path={endPoints.netflixOriginals}
