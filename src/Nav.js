@@ -6,7 +6,7 @@ function Nav() {
 
   const handleScroll = () => {
     const position = window.pageYOffset;
-    setStyle(position > 380 ? "nav nav__black" : "nav");
+    setStyle(position > 570 ? "nav nav__black" : "nav");
   };
 
   useEffect(() => {

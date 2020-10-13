@@ -5,13 +5,16 @@ import { endPoints, imagePathPrefix } from "./request";
 
 function Banner() {
   const [movieUrl, setMovieUrl] = useState("");
+  const [movie, setMovie] = useState(null);
 
   useEffect(() => {
     async function getData() {
       const response = await axios.get(endPoints.netflixOriginals);
       const movies = response.data.results;
-      const movie = movies[Math.floor(Math.random() * movies.length)];
-      setMovieUrl(imagePathPrefix + movie.backdrop_path);
+      const _movie = movies[Math.floor(Math.random() * movies.length)];
+      setMovie(_movie);
+      setMovieUrl(imagePathPrefix + _movie.backdrop_path);
+      console.log(_movie);
     }
     getData();
   }, []);
@@ -24,6 +27,14 @@ function Banner() {
 
   return (
     <header style={bannerBackground} className="banner">
+      <div className="banner__contents">
+        <h1 className="banner__title">{movie?.name}</h1>
+        <div className="banner__buttons">
+          <button className="banner__button">Play</button>
+          <button className="banner__button">My List</button>
+        </div>
+        <div className="banner__description">{movie?.overview}</div>
+      </div>
       <div className="banner--fadeBottom"></div>
     </header>
   );
