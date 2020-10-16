@@ -1,0 +1,28 @@
+footer {
+  max-width: 980px;
+  margin: 120px auto 0;
+  padding: 0 4% 20px;
+  color: grey;
+}
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+svg {
+  fill: grey;
+  height: 25px;
+  width: 36px;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+.copyright {
+  font-size: 11px;
+  margin-top: 15px;
+}
